@@ -44,5 +44,5 @@ public class Exercise1 {
         }
         return stack.size() == 0;
     }
-    }
+    
 }
