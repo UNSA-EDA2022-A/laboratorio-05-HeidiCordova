@@ -15,8 +15,34 @@ public class Exercise1 {
 
     public boolean esBalanceado(String s) {
         MyStack<Character> stack = new LinkedListStack<>();
-        // Colocar codigo aqui
-
-        return false;
+        if (s == null) {
+            return true;
+        } else {
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
+                    stack.push(s.charAt(i));
+                } else {
+                   if (s.charAt(i) == ')') {
+                        if (stack.pop() != '(') {
+                            return false;
+                        }
+                    } else {
+                        if (s.charAt(i) == ']') {
+                            if (stack.pop() != '[') {
+                                return false;
+                            }
+                        } else {
+                            if (s.charAt(i) == '}') {
+                                if (stack.pop() != '{') {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return stack.size() == 0;
+    }
     }
 }
